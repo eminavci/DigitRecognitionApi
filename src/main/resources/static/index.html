@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="hwdrApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Hand Written Digit Recognition</title>
+</head>
+<body>
+
+    <div id="main-frame0">
+
+
+
+        <div id="msgDiv" ng-controller="msgController" ng-show="msgData.isShowMsg"
+             ng-class="{3:'successMSg', 1:'infoMsg', 2:'warningMSg', 0:'errorMSg'}[msgData.msgType]"
+             ng-cloak>
+             <span>{{msgData.customMsg}}</span>
+             <img src="app/asset/icons/close.png" width="20" height="20" ng-click="msgData.isShowMsg = false">
+        </div>
+
+        <div id="main-frame1">
+            <div id="main-menu">
+                <div class="btn-group btn-group-justified">
+                    <a href="#/digitrecognition" class="btn btn-default">Draw</a>
+                    <a href="#/trainingset" class="btn btn-default">Training Set</a>
+                    <a href="#/freqpatterns" class="btn btn-default">Frequent Patterns</a>
+                </div>
+            </div>
+            <div id="main-frame2" ng-view>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-resource/angular-resource.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular/loading-bar.js"></script>
+    <script type="text/javascript" src="bower_components/fusioncharts/fusioncharts.js"></script>
+    <script type="text/javascript" src="bower_components/fusioncharts/fusioncharts.charts.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular-fusioncharts.min.js"></script>
+
+
+    <script type="text/javascript" src="app/js/app.js"></script>
+    <script type="text/javascript" src="app/js/controllers.js"></script>
+    <script type="text/javascript" src="app/js/services.js"></script>
+    <script type="text/javascript" src="app/js/directives.js"></script>
+    <script type="text/javascript" src="app/js/filters.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="bower_components/bootstrap-css-only/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="app/css/app.css" />
+</body>
+</html>

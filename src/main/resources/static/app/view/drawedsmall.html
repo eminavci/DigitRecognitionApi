@@ -1,0 +1,12 @@
+<div class="main_custom" style="margin:7px !important;">
+   <div class="drwSmall" ng-style="{background:'url(data:image/png;base64,' + fcc.counteredBase64ImgStr}">
+
+    </div>
+    <div class="drwSmallCst">
+        <strong >{{fcc.lblClass}}</strong>
+        <button class="btn btn-default" style="float:right"
+        mw-confirm-click="deleteFccData({idsi:fcc.id})" mw-confirm-click-message="Are you sure to Delete??"
+        ><span class="glyphicon glyphicon-trash"></span></button>
+    </div>
+    <div ng-show="fcc.howFar"><strong>Dist : </strong> {{fcc.howFar}}</div>
+</div>

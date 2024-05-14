@@ -1,0 +1,156 @@
+<div ng-controller="trController" style="padding:0;">
+
+
+    <div class="main_custom" id="training-graph">
+           <div id="datasetinfohist">
+               <fusioncharts
+                             width= "100%"
+                             height= "100%"
+                             type= "column2d"
+                             dataFormat= "json"
+                             dataSource= "{{samplesHistData}}">
+               </fusioncharts>
+           </div>
+
+        <div id="datasetaction">
+            <ul >
+                <li>
+                    <button class="btn btn-default" ng-click="refreshpage()"><span class="glyphicon glyphicon-refresh"></span>&nbsp;&nbsp;Refresh Page</button>
+                </li>
+                <li>
+                    <button class="btn btn-default" mw-confirm-click="condense()" mw-confirm-click-message="Are you sure to start the task??">
+                        <span class="glyphicon glyphicon-play"></span>&nbsp;&nbsp;Condense Dataset
+                    </button>
+                </li>
+                <li>
+                    <button class="btn btn-default"  ng-click="showKhist=true;showAcc=false">
+                        <span class="glyphicon glyphicon-play"></span>&nbsp;&nbsp;<strong>K</strong> Histogram
+                    </button>
+                </li>
+                <li>
+                    <button class="btn btn-default"  ng-click="showAcc=true; showKhist=false;testAccuracy(false)" >
+                        <span class="glyphicon glyphicon-play"></span>&nbsp;&nbsp;Accuracy Measure
+                    </button>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+      <span style="display:block; clear:both; height:1px"></span>
+    <div class="main_custom" id="training-training">
+           <!-- <drawedsmall ng-repeat="i in [] | range:100" idsi="{{i}}"></drawedsmall>fccs-->
+            <drawedsmall ng-show="!showKhist && !showAcc" ng-repeat="fcc in fccs" idm="{{$index}}" delete-fcc-entry="deleteFccEntry(idsi)" ng-class="{'redbag': isInDeleteds(fcc.id)}"></drawedsmall>
+            <div id="kHistogramDiv" ng-show="showKhist && !showAcc">
+
+               <div id="kHistogram" >
+<!--
+                   <fusioncharts
+                                 width= "100%"
+                                 height= "100%"
+                                 type= "column2d"
+                                 dataFormat= "json"
+                                 dataSource= "{{khistorydata}}">
+                   </fusioncharts>
+-->
+
+                   <div fusioncharts
+                        width="100%"
+                        height="100%"
+                        type="msline"
+                        chart="{{kHistAttrs}}"
+                        categories="{{kHistCats}}"
+                        dataset="{{kHistData}}"
+                        ></div>
+               </div>
+
+               <fieldset id="kTuneRes">
+                   <legend>K Results</legend>
+                   <button class="btn btn-default"  mw-confirm-click="learnBestK(true)" mw-confirm-click-message="Are you sure to start the task??">
+                       <span class="glyphicon glyphicon-play"></span>&nbsp;&nbsp;Learn Optimum K
+                   </button>
+                   <br>
+                   <br>
+                   <dl><dt>K</dt><dd>{{kHisRes.K}}</dd></dl>
+                   <dl><dt>Cost</dt><dd>{{kHisRes.error}}</dd></dl>
+                   <dl><dt>#Fold</dt><dd>{{kHisRes.nbFold}}</dd></dl>
+                   <dl><dt>#Samples</dt><dd>{{kHisRes.nbSamples}}</dd></dl>
+                   <dl><dt>Time</dt><dd>{{kHisRes.runTime}}</dd></dl>
+                   <span id="kTuneRun" ng-show="kTubeRun">Running...</span>
+               </fieldset>
+
+           </div>
+            <div id="kHistogramDiv" ng-show="!showKhist && showAcc">
+                <table id="accTbl1">
+                    <tr>
+                        <td colspan="2">
+
+                            <select ng-model="testType"
+                                    ng-options="acct.desc for acct in resAcc" ng-change="onChangeTestAcc(testType)"
+                                    style="padding:4px">
+
+                            </select>
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Accuracy Rate</td>
+                        <td>{{testType.accuracy}}</td>
+                    </tr>
+                    <tr>
+                        <td>Avg. Precision</td>
+                        <td>{{testType.avg_precision}}</td>
+                    </tr>
+                    <tr>
+                        <td>Avg. Recall</td>
+                        <td>{{testType.avg_recall}}</td>
+                    </tr>
+                    <tr>
+                        <td>Value of K</td>
+                        <td>{{testType.K}}</td>
+                    </tr>
+                    <tr>
+                        <td>Test Data Size</td>
+                        <td>{{testType.testsize}}</td>
+                    </tr>
+                    <tr>
+                        <td>Train Data Size</td>
+                        <td>{{testType.trainsize}}</td>
+                    </tr>
+                    <tr>
+                        <td>Execution Time</td>
+                        <td>{{testType.exectime}}</td>
+                    </tr>
+                    <tr style="margin-top:10px">
+                        <td colspan="2"><button class="btn btn-default" mw-confirm-click="testAccuracy(true)" mw-confirm-click-message="Are you sure to recompute??">
+                            <span class="glyphicon glyphicon-play"></span>&nbsp;&nbsp;Recompute Accuracy
+                            </button></td>
+                    </tr>
+                </table>
+                <table id="accTbl2">
+                    <!--({{$index}},{{$parent.$index}})-->
+                    <tr>
+                        <td colspan="13" style="text-align:center; font-weight:bold"> {{testType.desc}}</td>
+                    </tr>
+                    <tr>
+                           <td style="visibility:hidden"></td>
+                        <td colspan="10" style="text-align:center">Predicted Classes</td>
+                    </tr>
+                    <tr ng-repeat="row in testType.matrix">
+                        <td ng-repeat="cell in row  track by $index" ng-class="($parent.$index == 0 || $index == 0) ? 'tdCls': $index > 10 ? 'prcCell' : 'tdCell'">
+
+                            <span ng-show="!($parent.$index == 0 && $index == 0)" ng-class="$parent.$index == $index ? 'truePos': 'falsePos'">
+                                <span ng-show="!($parent.$index == 0 && ($index == 11 || $index == 12))">{{cell}} </span>
+                                <span ng-show="($index == 11 && $parent.$index == 0)">Recall </span>
+                                <span ng-show="($index == 12 && $parent.$index == 0)">Precision</span>
+                            </span>
+
+                        </td>
+                    </tr>
+                </table>
+           </div>
+        <img id="closeKhist" src="app/asset/icons/close2.png" ng-show="showKhist || showAcc" ng-click="showKhist=false; showAcc=false">
+    </div>
+
+</div>

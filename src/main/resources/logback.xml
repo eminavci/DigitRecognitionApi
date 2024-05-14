@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <!-- Console Appender -->
+	<appender name="ConsoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+   		<layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%5p %d{yyyy-MM-dd HH:mm:ss.SSS} ${PID:- } : %m%n</pattern>
+        </layout>
+  	</appender>
+
+    <!-- File Appender -->
+    <appender name="FileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/hwdrApp.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>%d{yyyy-MM-dd}.%i.hwdrApp.log</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <maxHistory>10</maxHistory>
+            <totalSizeCap>100MB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%5p %d{yyyy-MM-dd HH:mm:ss.SSS} ${PID:- } : %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org.mongodb.driver" level="ERROR"/>
+  	<logger name="org.springframework" level="ERROR"/> 
+ 	<!-- <logger name="org.springframework.security" level="INFO"/> -->
+ 
+    
+	<root level="DEBUG">
+		<appender-ref ref="ConsoleAppender"/>
+		<!--<appender-ref ref="FileAppender"/>-->
+	</root>
+		  
+	<!-- DEPROP LOGGERS - BEGIN -->
+  
+   	<logger name="com.mldm" level="DEBUG" additivity="false">
+   		<appender-ref ref="ConsoleAppender" />
+        <!--<appender-ref ref="FileAppender" />-->
+   	</logger>
+    	
+	<!-- DEPROP LOGGERS - END  -->
+	
+</configuration>

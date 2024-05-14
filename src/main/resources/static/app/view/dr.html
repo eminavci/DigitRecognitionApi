@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<div ng-controller="drController">
+    <popupadd control2="carryDraw" callback-add-trset="addToTrSet()"></popupadd>
+    <input type="text" ng-model="fccMeta.fccs[0].fcc" readonly id="fcctext"/>
+    <div class="main_custom" style="padding:5px;max-width:208px">
+
+       <div class = "btn-group-vertical islem-btns">
+            <div id="kSelDiv">
+                <strong>K</strong><input type="text" ng-model="kforNN" only-digits >
+            </div>
+           <button href = "#" class = "btn btn-default" ng-click="focusinControl.reset(); clearBtn()">CLEAR</button>
+           <button href = "#" class = "btn btn-default" ng-click="classifyBtn()">CLASSIFY</button>
+
+        </div>
+        <span style="padding: 6px 0 2px 0; display:inline-block"><strong>Time:</strong> {{classificationTime}}</span>
+         <select class="btn dropdown-toggle" id="combo-digits" ng-model="digits" style=" clear: both; margin-bottom:3px;"
+                 ng-options="i as i for i in [] | range:10">
+
+          </select>
+          <button href = "#" class = "btn btn-success" ng-click="carryDraw.drawDrawed(digits, fccMeta.drawedBase64ImgStr);">ADD to TRAINING SET</button>
+
+    </div>
+    <div class="main_custom">
+        <div id="main-draw" drawinger control="focusinControl" >
+
+        </div>
+    </div>
+
+    <div class="main_custom">
+        <div id="main-classify-graph">
+            <fusioncharts
+                          width= "100%"
+                          height= "100%"
+                          type= "column2d"
+                          dataFormat= "json"
+                          dataSource= "{{freemanHistData}}">
+            </fusioncharts>
+        </div>
+    </div>
+
+    <div class="main_custom" style="clear:left">
+       <div id="main-drawed">
+           <!--<div class="drCanvas" ng-style="{'background':'url(data:image/png;base64,'+fccMeta.reducedDrawedImg+')', 'background-repeat':'no-repeat'}">-->
+            <div class="drCanvas" ng-style="{'background':'url('+fccMeta.drawedBase64ImgStr+')', 'background-repeat':'no-repeat'}">
+
+            </div>
+        </div>
+    </div>
+    <div class="main_custom" style="width:670px;">
+       <div id="main-knn-res">
+            <drawedsmall ng-repeat="fcc in fccs" idm="{{$index}}" delete-fcc-entry="deleteFccEntry(idsi)"></drawedsmall>
+        </div>
+    </div>
+
+    <span style="display:block; clear:both; height:1px"></span>
+    <div id="main-strenth-bar">
+        <span>Strength</span>
+        <div id="strength" ng-style="{'width': strentghBarStl.wdth, 'background':strentghBarStl.bgclr}"></div>
+
+    </div>
+</div>

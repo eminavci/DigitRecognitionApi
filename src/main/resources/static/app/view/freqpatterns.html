@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<div ng-controller="ptrnController">
+
+    <div class="main_custom" id="freq_setDiv">
+
+        <span>Frequent Patterns of Class : </span>
+
+        <select   ng-model="classes" style="" ng-options="i as i for i in [] | range:10" ng-change="getFreqPatterns(classes)">
+
+        </select>
+
+        <button class="btn btn-default"  mw-confirm-click="computeFreqPatterns()" mw-confirm-click-message="Are you sure to start the task??">
+            <span class="glyphicon glyphicon-play"></span>&nbsp;&nbsp;Compute Frequent Patterns
+        </button>
+        <span id="freqMinRun">{{freqMinRunTxt}}</span>
+
+    </div>
+    <div class="main_custom" id="freq_patternsDiv">
+
+        <div ng-repeat="ptrn in patterns" class="main_custom" style="margin:7px !important;">
+            <div  class="drwSmall" ng-style="{background:'url(data:image/png;base64,' + ptrn.counteredBase64ImgStr}" title="{{ptrn.fcc}}">
+
+            </div>
+            <div class="patternInfo">
+                <dl><dt>Support</dt><dd>{{ptrn.support}}</dd></dl>
+                <dl><dt>Length</dt><dd>{{ptrn.length}}</dd></dl>
+            </div>
+                <!--    <div ng-show="fcc.howFar"><strong>Dist : </strong> {{fcc.howFar}}</div>-->
+        </div>
+
+    </div>
+
+</div>

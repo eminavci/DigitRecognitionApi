@@ -1,0 +1,475 @@
+
+#main-frame0{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+#main-frame1{
+    position: relative;
+    width: 910px;
+    min-height: 500px;
+    display: inline-block;
+    text-align: left;
+    margin-top: 60px;
+}
+#main-menu{
+    padding: 3px;
+
+}
+#main-menu a{
+    font-weight: bold !important;
+    color: #242222;
+}
+#main-frame2{
+    height: 540px;
+    border: 2px solid #9E9B9B;
+    margin: 3px;
+    padding: 4px;
+    border-radius: 5px;
+    background-color: #F1EFEF;
+    overflow: hidden;
+}
+#main-frame2 #fcctext{
+    width: 99%;
+    margin: 5px;
+    padding: 2px;
+    color: #838381;
+}
+
+.main_custom{
+    display: inline-block;
+    border: 1px solid #949090;
+    border-radius: 2px;
+    float: left;
+    margin: 3px;
+    padding: 3px;
+    background-color: #F6EFEF;
+}
+
+.islem-btns .btn-default, #combo-digits, .btn-success{
+    width: 196px !important;
+}
+#kSelDiv{
+    display: inline-block;
+    background-color: #CBCBCB;
+    padding: 3px;
+    width: 99%;
+    margin:  2px 2px 7px 2px;
+}
+#kSelDiv strong{padding-right: 6px; padding-left: 45px;}
+#kSelDiv input[type="text"]{width: 70px; padding-left: 10px;}
+
+#main-draw, #main-drawed{
+    width: 200px;
+    height: 200px;
+    display: block;
+    background-color: #FFFFFF;
+    margin: 0px;
+    position: relative;
+}
+
+#main-strenth-bar{
+    clear: both;
+    display: block;
+    height: 28px;
+    border: 1px solid #949090;
+    border-radius: 2px;
+    margin: 3px;
+    padding: 3px;
+    background-color: #F6EFEF;
+    margin-top: 8px;
+    background-color: #FFFFFF;
+    position: relative;
+    text-align: center;
+    font-weight: bold;
+    color: #716D6D;
+
+}
+#main-strenth-bar span{
+    z-index: 2;
+    position: relative;
+}
+#strength{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+#main-knn-res{
+    width: 660px;
+    height: 200px;
+    display: inline-block;
+    background-color: #FFFFFF;
+    margin: 0px;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+#main-classify-graph{
+    width: 450px;
+    height: 200px;
+    display: block;
+    background-color: #FFFFFF;
+    margin: 0px;
+}
+#datasetinfohist{
+    width: 550px;
+    height: 200px;
+    display: block;
+    background-color: #FFFFFF;
+    margin: 0px;
+    float: left;
+}
+
+#datasetaction ul{
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#datasetaction ul li{
+     margin: 5px;
+}
+#datasetaction ul li button{width: 100%; text-align: left}
+#datasetaction{
+    width: 200px;
+    height: 200px;
+    display: block;
+    background-color: #FFFFFF;
+    margin: 0px;
+    float: right;
+    margin-left: 6px
+}
+
+#training-graph{
+    display: block;
+    position: relative;
+    height: 210px;
+    overflow: hidden;
+    width: 99%;
+
+}
+
+#training-training{
+    display: block;
+    position: relative;
+    height: 290px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 99%
+
+}
+
+.drwSmall{
+    width: 100px;
+    height: 100px;
+    background-color: #FFFFFF;
+    overflow: hidden;
+
+}
+.drwSmallCst{
+    width: 100px;
+    background-color: #D5D1D1;
+    padding: 2px;
+    overflow: hidden;
+    position: relative;
+}
+
+.drwSmallCst strong{
+    font-size: 24px;
+    font-weight: bold;
+    color: #4F4F70;
+    position: absolute;
+    top: 6px;
+    left: 12px;
+}
+.drCanvas{
+    width: 100%;
+    height: 100%;
+}
+
+#canvas {
+    position: absolute;
+    left: 0px; right: 0;
+    bottom: 0; top: 0;
+    cursor: crosshair;
+}
+
+#msgDiv{
+    position: fixed;
+    top: 6px;
+    left: 20px;
+    right: 20px;
+    min-height: 30px;
+    border: 1px solid #949090;
+    border-radius: 5px;
+    padding: 3px 50px 3px 50px;
+    z-index: 5;
+    max-height: 100px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#msgDiv span{
+    text-align: center;
+    font-size: 14px;
+    color: #464444;
+    font-weight: bold;
+}
+#msgDiv img{
+    cursor: pointer;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+.warningMSg{background-color: #FFFC59 !important;}
+.infoMSg{background-color: #59B7FF !important;}
+.successMSg{background-color: #45C462 !important;}
+.errorMSg{background-color: #F75541 !important; color: #FFFFFF !important;}
+
+#main-popup{
+    position: absolute;
+    z-index: 50;
+    top: 0; left: 0; right: 0; bottom: 0;
+     background:rgba(50,50,50,0.6);
+}
+#main-popup button{
+    width: 100px; font-weight: bold;
+    margin: 0 auto;
+}
+#popupDiv{
+    width: 200px;
+    height: 202px;
+    display: block;
+    border-bottom: 2px solid #7D7A7A;
+    margin: 5px;
+    background-color: #FFFFFF;
+    margin: 0 auto;
+}
+.redbag{
+    background-color: red !important;
+}
+#kHistogramDiv{
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+#kHistogram{
+    background-color: white;
+    margin: 0px;
+    padding: 10px;
+    width: 650px;
+    height: 100%;
+    display: inline-block;
+    overflow: hidden;
+}
+
+#kTuneRes{
+    background-color: white;
+    margin: 0px;
+    padding: 10px;
+    width: 190px;
+    height: 100%;
+    display: inline;
+    margin-left: 6px;
+    overflow: hidden;
+}
+#kTuneRes legend{
+    font-size: 15px;
+    font-weight: bold;
+}
+#kTuneRes dt:after { content:":"; }
+#kTuneRes dt{width: 70px}
+#kTuneRes dt, dd { float: left; }
+#kTuneRes dd { margin-left: 5px }
+#kTuneRes dl { float: left; padding: 0; margin:2px; border-bottom: 1px solid #A4A3A3; width: 190px}
+#closeKhist{position: absolute; right: 2px; top: 2px; cursor: pointer;}
+#kTuneRes span#kTuneRun{
+    color: firebrick;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+
+#freq_setDiv{
+    display: block;
+    width: 99%;
+    padding: 10px;
+    background-color: #FFFFFF;
+}
+#freq_setDiv span{
+    font-size: 14px;
+    font-weight: bold;
+    color: #404142;
+}
+#freq_setDiv select{
+    padding:4px; background-color: white;color:#0A0F22; font-weight:bold; margin: 0 25px 0 5px;border: none;font-size: 16px;
+}
+#freq_patternsDiv{
+    display: inline-block;
+    position: relative;
+    height: 450px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 99%;
+    background-color: #F7FAFD;
+}
+
+#accTbl1{
+    margin: 20px 5px 0px 10px;
+    border: 1px solid #7C7C7C;
+    display: inline-table;
+    float: left;
+}
+#accTbl1 td{
+    padding: 5px;
+}
+#accTbl2{
+    display: inline-table;
+    float: left;
+    margin: 20px 5px 0px 10px;
+}
+#accTbl2 td{
+    padding: 3px 10px 3px 10px;
+    border: 1px solid #C3C4C5;
+}
+td.tdCls{
+    background-color: #ABABAE;
+}
+td.tdCls span{
+    font-weight: bold;
+}
+td.tdCell{
+    background-color: white;
+}
+td.prcCell{
+    background-color: #D8E5FF;
+}
+span.truePos{
+    font-weight: bold;
+    color:  #931A0B;
+}
+.patternInfo dt:after { content:":"; }
+.patternInfo dt{width: 25px}
+.patternInfo dd{float: right}
+.patternInfo dt, dd { display: inline-block}
+.patternInfo dd { margin-left: 5px }
+.patternInfo dl { padding: 0; margin:2px; border-bottom: 1px solid #A4A3A3; font-size: 12px;}
+
+#freqMinRun{color: #D10F0F !important}
+
+
+/* ########## LOADING BAR ########## */
+/* Make clicks pass-through */
+#loading-bar,
+#loading-bar-spinner {
+    pointer-events: none;
+    -webkit-pointer-events: none;
+    -webkit-transition: 350ms linear all;
+    -moz-transition: 350ms linear all;
+    -o-transition: 350ms linear all;
+    transition: 350ms linear all;
+}
+
+#loading-bar.ng-enter,
+#loading-bar.ng-leave.ng-leave-active,
+#loading-bar-spinner.ng-enter,
+#loading-bar-spinner.ng-leave.ng-leave-active {
+    opacity: 0;
+}
+
+#loading-bar.ng-enter.ng-enter-active,
+#loading-bar.ng-leave,
+#loading-bar-spinner.ng-enter.ng-enter-active,
+#loading-bar-spinner.ng-leave {
+    opacity: 1;
+}
+
+#loading-bar .bar {
+    -webkit-transition: width 350ms;
+    -moz-transition: width 350ms;
+    -o-transition: width 350ms;
+    transition: width 350ms;
+
+    background: #119DDD;
+    position: fixed;
+    z-index: 10002;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    border-bottom-right-radius: 1px;
+    border-top-right-radius: 1px;
+}
+
+/* Fancy blur effect */
+#loading-bar .peg {
+    position: absolute;
+    width: 70px;
+    right: 0;
+    top: 0;
+    height: 2px;
+    opacity: .45;
+    -moz-box-shadow: #29d 1px 0 6px 1px;
+    -ms-box-shadow: #29d 1px 0 6px 1px;
+    -webkit-box-shadow: #29d 1px 0 6px 1px;
+    box-shadow: #29d 1px 0 6px 1px;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    border-radius: 100%;
+}
+
+#loading-bar-spinner {
+    display: block;
+    position: fixed;
+    z-index: 10002;
+    top: 10px;
+    left: 10px;
+}
+
+#loading-bar-spinner .spinner-icon {
+    width: 16px;
+    height: 16px;
+
+    border:  solid 2px transparent;
+    border-top-color:  #FCF411;
+    border-left-color: #FCF411;
+    border-radius: 50%;
+
+    -webkit-animation: loading-bar-spinner 400ms linear infinite;
+    -moz-animation:    loading-bar-spinner 400ms linear infinite;
+    -ms-animation:     loading-bar-spinner 400ms linear infinite;
+    -o-animation:      loading-bar-spinner 400ms linear infinite;
+    animation:         loading-bar-spinner 400ms linear infinite;
+}
+
+@-webkit-keyframes loading-bar-spinner {
+    0%   { -webkit-transform: rotate(0deg);   transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-moz-keyframes loading-bar-spinner {
+    0%   { -moz-transform: rotate(0deg);   transform: rotate(0deg); }
+    100% { -moz-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-o-keyframes loading-bar-spinner {
+    0%   { -o-transform: rotate(0deg);   transform: rotate(0deg); }
+    100% { -o-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-ms-keyframes loading-bar-spinner {
+    0%   { -ms-transform: rotate(0deg);   transform: rotate(0deg); }
+    100% { -ms-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@keyframes loading-bar-spinner {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

@@ -1,0 +1,12 @@
+<div id="main-popup" ng-show="showPopup">
+    <div  class="main_custom" style="position:relative; left: 36%; margin-top:10%"><br>
+        <div id="popupDiv">
+            <div class="drCanvas" ng-style="{'background':'url('+drawedImg+')'}">
+                
+            </div>
+        </div>
+        <span style="padding:6px; display:block">Are you sure to add this draw as <strong style="color:red"> {{digits}}</strong> ?</span>
+        <button class="btn btn-default" style="float:right" ng-click="yesClicked()">YES</button>
+        <button class="btn btn-default"  ng-click="showPopup = false">Cancel</button>
+    </div>
+</div>
